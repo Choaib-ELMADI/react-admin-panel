@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { Sidebar } from '../../components/index';
 import './Home.scss';
 
 
@@ -7,7 +8,10 @@ import './Home.scss';
 const Home = () => {
   return (
     <div className='app__home'>
-        <h1>Home</h1>
+      <Sidebar />
+      <div className='home-container'>
+        <h1>Home Container</h1>
+      </div>
     </div>
   );
 };

@@ -1,5 +1,9 @@
 .app {
     &__home {
-        background: red;
+        display: flex;
+
+        .home-container {
+            flex: 6;
+        }
     }
 }

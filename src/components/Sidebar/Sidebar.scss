@@ -1,0 +1,100 @@
+.app {
+    &__sidebar {
+        min-width: 160px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: .75rem;
+        border-right: 1px solid var(--dark__color3);
+        min-height: 100svh;
+        background: var(--light__color1);
+
+        .logo {
+            height: 2.5rem;
+            display: grid;
+            place-items: center;
+            border-bottom: 1px solid var(--dark__color3);
+        
+            span {
+                font-size: var(--medium__font2);
+                color: var(--main__color1);
+                font-weight: 500;
+                text-transform: uppercase;
+            }
+        }
+
+        .menu .menu-list {
+            display: flex;
+            flex-direction: column;
+            gap: .75rem;
+            padding-left: 1rem;
+
+            ul {
+                display: flex;
+                flex-direction: column;
+
+                span {
+                    font-weight: 500;
+                    padding: .135rem 0;
+                }
+
+                li {
+                    padding: .135rem 0 .135rem .5rem;
+                    transition: .3s;
+
+                    .link {
+                        text-decoration: none;
+                        color: var(--dark__color1);
+                        display: flex;
+                        align-items: center;
+                        gap: .5rem;
+                        transition: .3s;
+                        
+                        .icon {
+                            color: var(--main__color1);
+                            transition: .3s;
+                        }
+                    }
+
+                    &:hover {
+                        .link {
+                            color: var(--main__color2);
+
+                            .icon {
+                                color: var(--main__color2);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .theme {
+            display: flex;
+            flex-direction: column;
+            gap: .25rem;
+            padding-left: 1rem;
+
+            span {
+                font-weight: 500;
+            }
+
+            .options {
+                display: flex;
+                gap: .5rem;
+                margin-left: .5rem;
+
+                .option {
+                    width: 21px;
+                    height: 21px;
+                    border-radius: 50%;
+                    border: 1px solid var(--main__color1);
+                    cursor: pointer;
+
+                    &:nth-child(1) { background: whitesmoke }
+                    &:nth-child(2) { background: black }
+                }
+            }
+        }
+    }
+}

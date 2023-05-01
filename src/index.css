@@ -1,6 +1,37 @@
+:root {
+  --main__color1:  #8739f9;
+  --main__color2:  rgb(235, 116, 73);
+  --main__color3:  #c651cd;
+  --main__color4:  #363636;
+
+  --dark__color1:  #100f10;
+  --dark__color2:  #1b1b1b;
+  --dark__color3:  #242424;
+
+  --light__color1: rgba(255, 255, 255, .96);
+  --light__color2: rgba(255, 255, 255, .67);
+  --light__color3: rgba(255, 255, 255, .45);
+
+  --small__font1:  .375rem;
+  --small__font2:  .625rem;
+  --small__font3:  .875rem;
+
+  --medium__font1: 1rem;
+  --medium__font2: 1.375rem;
+  --medium__font3: 1.75rem;
+
+  --large__font1:  2.5rem;
+  --large__font2:  3.5rem;
+  --large__font3:  4.5rem;
+}
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   font-family: system-ui, sans-serif;
+}
+
+ul {
+  list-style: none;
 }

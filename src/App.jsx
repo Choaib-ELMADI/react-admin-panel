@@ -2,7 +2,6 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import { Home, List, Login, Single, New } from './pages/index';
-import { Navbar, Sidebar } from './components/index';
 import './App.css';
 
 
@@ -11,8 +10,6 @@ const App = () => {
   return (
     <div className='app'>
       <BrowserRouter>
-        <Navbar />
-        <Sidebar />
         <Routes>
           <Route path='/'>
 
