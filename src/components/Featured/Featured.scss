@@ -46,6 +46,9 @@
             .transactions {
                 display: flex;
                 justify-content: space-between;
+                // gap: 1rem 1.5rem;
+                // justify-content: center;
+                // flex-wrap: wrap;
 
                 .transaction {
                     display: flex;
