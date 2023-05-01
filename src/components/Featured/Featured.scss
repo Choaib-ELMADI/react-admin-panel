@@ -1,0 +1,68 @@
+.featured-chart {
+    flex: 1;
+    box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, .4);
+    border-radius: 6px;
+    padding: .5rem .75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .icon {
+            cursor: pointer;
+        }
+    }
+
+    .body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: .5rem;
+        text-align: center;
+
+        .progress-container {
+            width: 100px;
+            height: 100px;
+        }
+
+        .sales h1 {
+            font-weight: 400;
+        }
+
+        .previous-actions {
+            display: flex;
+            flex-direction: column;
+            gap: .5rem;
+
+            & > span {
+                color: gray;
+                font-size: var(--small__font3);
+            }
+
+            .transactions {
+                display: flex;
+                justify-content: space-between;
+
+                .transaction {
+                    display: flex;
+                    flex-direction: column;
+                    gap: .5rem;
+
+                    span:nth-child(1) {
+                        font-weight: 400;
+                    }
+
+                    span:nth-child(2) {
+                        display: flex;
+                        align-items: center;
+                        gap: .25rem;
+                    }
+                }
+            }
+        }
+    }
+}

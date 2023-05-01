@@ -1,6 +1,7 @@
 .app {
     &__home {
         display: flex;
+        // position: relative;
 
         .home-container {
             flex: 6;
@@ -22,6 +23,12 @@
                 @media screen and (width <= 750px) {
                     grid-template-columns: repeat(1, 1fr);
                 }
+            }
+
+            .charts {
+                padding: 0 2rem;
+                display: flex;
+                gap: 1.5rem;
             }
         }
     }

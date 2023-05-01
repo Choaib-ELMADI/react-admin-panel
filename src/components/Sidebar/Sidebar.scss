@@ -1,5 +1,7 @@
 .app {
     &__sidebar {
+        // position: sticky;
+        // top: 0;
         min-width: 160px;
         flex: 1;
         display: flex;
