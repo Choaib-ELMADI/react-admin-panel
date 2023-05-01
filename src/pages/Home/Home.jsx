@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Sidebar, Navbar } from '../../components/index';
+import { Sidebar, Navbar, Widget } from '../../components/index';
 import './Home.scss';
 
 
@@ -11,7 +11,12 @@ const Home = () => {
       <Sidebar />
       <div className='home-container'>
         <Navbar />
-        <h1>Home Container</h1>
+        <div className='widgets'>
+          <Widget type='user'     amount={ 995 }  diff={ 34 } />
+          <Widget type='order'    amount={ 450 }  diff={ 55 } />
+          <Widget type='earnings' amount={ 4621 } diff={ 62 } />
+          <Widget type='balance'  amount={ 1548 } diff={ 15 } />
+        </div>
       </div>
     </div>
   );
