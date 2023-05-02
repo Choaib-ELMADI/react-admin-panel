@@ -28,7 +28,7 @@ const Sidebar = () => {
           <ul>
             <span>LISTS</span>
             <li><NavLink className='link' to='/users'><FaUsers className='icon' size={ 20 } /> Users</NavLink></li>
-            <li><NavLink className='link' to='/userss'><AiTwotoneShop className='icon' size={ 20 } /> Products</NavLink></li>
+            <li><NavLink className='link' to='/users/5'><AiTwotoneShop className='icon' size={ 20 } /> Products</NavLink></li>
             <li><NavLink className='link' to='/usersss'><AiFillIdcard  className='icon' size={ 20 } /> Orders</NavLink></li>
             <li><NavLink className='link' to='/usersss'><TbTruckDelivery  className='icon' size={ 20 } /> Delivery</NavLink></li>
           </ul>

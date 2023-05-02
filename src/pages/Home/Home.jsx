@@ -21,7 +21,7 @@ const Home = () => {
         
         <div className="charts">
           <Featured />
-          <Chart />
+          <Chart flex={ 2.5 } title="Last Year (Revenue)" />
         </div>
 
         <div className="list-container">

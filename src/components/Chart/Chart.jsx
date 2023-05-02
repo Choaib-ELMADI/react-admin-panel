@@ -20,13 +20,12 @@ import './Chart.scss';
 
 
 
-const Chart = () => {
+const Chart = ({ flex, title }) => {
   return (
-    <div className='normal-chart'>
-      <h3 className='chart-title' style={{ marginLeft: '.5rem' }}>Last Year (Revenue)</h3>
+    <div className='normal-chart' style={{ flex }}>
+      <h3 className='chart-title' style={{ marginLeft: '.5rem' }}>{ title }</h3>
       <ResponsiveContainer width='100%' height={ 300 }>
         <AreaChart 
-          width={ 730 } height={ 250 } 
           data={ data }
           margin={{ 
             top: 10, 

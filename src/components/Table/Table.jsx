@@ -20,7 +20,7 @@ const MyTable = () => {
                     <TableRow>
                         <TableCell>User Id</TableCell>
                         <TableCell>Product</TableCell>
-                        <TableCell>User</TableCell>
+                        <TableCell>Customer</TableCell>
                         <TableCell>Date</TableCell>
                         <TableCell>Amount</TableCell>
                         <TableCell>Method</TableCell>
