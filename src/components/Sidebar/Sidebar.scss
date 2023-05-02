@@ -2,15 +2,15 @@
     &__sidebar {
         position: sticky;
         top: 0rem;
-
         min-width: 160px;
         flex: 1;
         display: flex;
         flex-direction: column;
         gap: .75rem;
         border-right: 1px solid var(--dark__color3);
-        height: 100svh;
+        height: 100%;
         background: var(--light__color1);
+        padding-bottom: 1rem;
 
         .logo {
             height: 2.5rem;
@@ -60,6 +60,18 @@
                     }
 
                     &:hover {
+                        background: rgba(235, 116, 73, .15);
+
+                        .link {
+                            color: var(--main__color2);
+
+                            .icon {
+                                color: var(--main__color2);
+                            }
+                        }
+                    }
+
+                    &:has(.link.active) {
                         background: rgba(235, 116, 73, .15);
 
                         .link {
