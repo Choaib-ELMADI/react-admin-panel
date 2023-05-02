@@ -1,7 +1,6 @@
 .app {
     &__home {
         display: flex;
-        // position: relative;
 
         .home-container {
             flex: 6;
@@ -29,6 +28,18 @@
                 padding: 0 2rem;
                 display: flex;
                 gap: 1.5rem;
+            }
+
+            .list-container {
+                margin: 1rem 2rem;
+                padding: .5rem .75rem;
+                border-radius: 6px;
+                box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, .4);
+
+                .list-title {
+                    color: gray;
+                    margin-bottom: 1.5rem;
+                }
             }
         }
     }

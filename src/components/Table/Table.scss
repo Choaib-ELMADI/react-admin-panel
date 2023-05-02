@@ -1,0 +1,20 @@
+.table {
+    &__cell {
+        .product-wrapper-info {
+            display: flex;
+            gap: .5rem;
+            align-items: center;
+
+            img {
+                width: 30px;
+                height: 30px;
+                object-fit: contain;
+            }
+        }
+
+        &.status span {
+            padding: .25rem .5rem;
+            border-radius: 4px;
+        }
+    }
+}
