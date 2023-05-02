@@ -1,0 +1,13 @@
+.app {
+    &__list {
+        display: flex;
+
+        .list-container {
+            flex: 6;
+
+            .data-table-container {
+                padding: 1rem 2rem;
+            }
+        }
+    }
+}

@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { Sidebar, Navbar, DataTable } from '../../components';
 import './List.scss';
 
 
@@ -7,7 +8,14 @@ import './List.scss';
 const List = () => {
   return (
     <div className='app__list'>
-        <h1>List</h1>
+      <Sidebar />
+      <div className="list-container">
+        <Navbar />
+
+        <div className='data-table-container'>
+          <DataTable />
+        </div>
+      </div>
     </div>
   );
 };
