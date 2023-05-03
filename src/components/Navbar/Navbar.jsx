@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { BsSearch, BsMoonStarsFill, BsSunFill, BsListCheck, BsFillChatRightTextFill } from 'react-icons/bs';
 import { BiCollapse } from 'react-icons/bi';
 import { MdLanguage } from 'react-icons/md';

@@ -1,12 +1,14 @@
 import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: process.env.API_KEY,
-  authDomain: process.env.AUTH_DOMAIN,
-  projectId: process.env.PROJECT_ID,
-  storageBucket: process.env.STORAGE_BUCKET,
-  messagingSenderId: process.env.MESSAGING_SENDER_ID,
-  appId: process.env.APP_ID
+  apiKey: "AIzaSyBJSVnqRF1BZE-AiebaUhYnhs1WCksx65o",
+  authDomain: "admin-panel-f3b93.firebaseapp.com",
+  projectId: "admin-panel-f3b93",
+  storageBucket: "admin-panel-f3b93.appspot.com",
+  messagingSenderId: "269471820347",
+  appId: "1:269471820347:web:925e25ff9906ddda3cca1e"
 };
 
 const app = initializeApp(firebaseConfig);
+export const auth = getAuth(app);
