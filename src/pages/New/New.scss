@@ -1,0 +1,113 @@
+.app__new {
+    display: flex;
+
+    .new-container {
+        flex: 6;
+
+        .new {
+            padding: 1rem 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+
+            .top, .bottom {
+                padding: .5rem .75rem;
+                border-radius: 6px;
+                box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, .4);
+            }
+
+            .top {
+                h3 {
+                    color: gray;
+                }
+            }
+
+            .bottom {
+                display: flex;
+                gap: 1rem;
+
+                .left {
+                    flex: 1;
+                    text-align: center;
+
+                    img {
+                        width: 120px;
+                        height: 120px;
+                    }
+                }
+
+                .right {
+                    flex: 2;
+
+                    form {
+                        display: flex;
+                        flex-wrap: wrap;
+                        gap: 1.5rem;
+
+                        .formInput {
+                            width: 45%;
+                            max-width: 400px;
+
+                            label {
+                                font-weight: 500;
+                            }
+                            
+                            input {
+                                width: 100%;
+                                border: 0;
+                                outline: none;
+                                border-bottom: 2px solid var(--main__color1);
+                                padding: .5rem 0;
+                                font-size: var(--medium__font1);
+                                color: var(--dark__color1);
+
+                                &::placeholder {
+                                    color: gray;
+                                }
+                            }
+
+                            &.userProfile {
+                                display: flex;
+                                align-items: center;
+                                gap: .5rem;
+
+                                label {
+                                    font-size: 22px;
+                                }
+
+                                & > * {
+                                    cursor: pointer;
+                                }
+                            }
+                        }
+
+                        button {
+                            font-size: var(--medium__font1);
+                            padding: .5rem .75rem;
+                            border-radius: 6px;
+                            outline: none;
+                            border: 1px solid rgba(134, 57, 249, .2);
+                            background: transparent;
+                            color: var(--main__color1);
+                            font-weight: 500;
+                            height: max-content;
+                            margin-top: auto;
+                            cursor: pointer;
+                            transition: .2s;
+
+                            &:hover {
+                                background: rgba(134, 57, 249, .2);
+                            }
+                        }
+
+                        @media screen and (width <= 1000px) {
+                            .formInput {
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
