@@ -13,10 +13,6 @@ const New = ({ inputs, title, type }) => {
     e.preventDefault();
   };
 
-  const handleSelectProfile = (e) => {
-    setSelectedProfile(e.target.files[0]);
-  };
-
   return (
     <div className='app__new'>
       <Sidebar />
@@ -29,8 +25,12 @@ const New = ({ inputs, title, type }) => {
           <div className="bottom">
             <div className="left">
               <img 
-                src={ selectedProfile ? selectedProfile : "https://www.freeiconspng.com/thumbs/no-image-icon/no-image-icon-6.png" } 
+                src={ selectedProfile ? 
+                  URL.createObjectURL(selectedProfile) : 
+                  "https://www.freeiconspng.com/thumbs/no-image-icon/no-image-icon-6.png"
+                } 
                 alt={ selectedProfile ? 'User Profile' : 'No Image' }
+                draggable={ false }
               />
             </div>
             <div className="right">
@@ -42,7 +42,7 @@ const New = ({ inputs, title, type }) => {
                     type="file" 
                     id="profile" 
                     style={{ display: 'none' }} 
-                    onChange={ handleSelectProfile }
+                    onChange={ (e) => setSelectedProfile(e.target.files[0]) }
                   />
                 </div>
                 {
