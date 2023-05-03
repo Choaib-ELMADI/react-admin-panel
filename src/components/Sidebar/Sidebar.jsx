@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { MdDashboard } from 'react-icons/md';
 import { FaUsers } from 'react-icons/fa';
@@ -7,11 +7,14 @@ import { TbTruckDelivery } from 'react-icons/tb';
 import { IoMdStats, IoIosNotifications } from 'react-icons/io';
 import { CgProfile } from 'react-icons/cg';
 
+import { DarkModeContext } from '../../context/DarkModeContext';
 import './Sidebar.scss';
 
 
 
 const Sidebar = () => {
+  const { dispatch } = useContext(DarkModeContext);
+
   return (
     <div className='app__sidebar'>
       <div className="logo">
@@ -59,8 +62,8 @@ const Sidebar = () => {
       <div className="theme">
         <span>THEME</span>
         <div className='options'>
-          <div className="option" />
-          <div className="option" />
+          <div className="option" onClick={ () => dispatch({ type: 'LIGHT' }) } />
+          <div className="option" onClick={ () => dispatch({ type: 'DARK' }) } />
         </div>
       </div>
     </div>

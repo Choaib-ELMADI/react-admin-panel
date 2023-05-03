@@ -12,6 +12,7 @@
         min-height: 100svh;
         background: var(--light__color1);
         padding-bottom: 1rem;
+        transition: background .2s;
 
         .logo {
             height: 2.5rem;

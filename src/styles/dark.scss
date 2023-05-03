@@ -79,4 +79,26 @@
             }
         }
     }
+
+    .app__sidebar {
+        background: var(--dark__color1);
+
+        & > * {
+            color: var(--light__color2);
+        }
+
+        .menu-list {
+            span {
+                color: var(--light__color2);
+            }
+
+            .link {
+                color: var(--light__color3);
+
+                .icon {
+                    color: var(--light__color2);
+                }
+            }
+        }
+    }
 }

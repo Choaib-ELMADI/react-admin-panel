@@ -1,15 +1,18 @@
-import React from 'react';
-import { BsSearch, BsMoonStarsFill, BsListCheck, BsFillChatRightTextFill } from 'react-icons/bs';
+import React, { useContext } from 'react';
+import { BsSearch, BsMoonStarsFill, BsSunFill, BsListCheck, BsFillChatRightTextFill } from 'react-icons/bs';
 import { BiCollapse } from 'react-icons/bi';
 import { MdLanguage } from 'react-icons/md';
 import { IoMdNotifications } from 'react-icons/io';
 
+import { DarkModeContext } from '../../context/DarkModeContext';
 import './Navbar.scss';
 import images from '../../constants/images';
 
 
 
 const Navbar = () => {
+  const { darkMode, dispatch } = useContext(DarkModeContext);
+
   return (
     <div className='app__navbar'>
       <div className='wrapper'>
@@ -25,7 +28,8 @@ const Navbar = () => {
           </div>
 
           <div className="item">
-            <BsMoonStarsFill className='icon' size={ 19 } />
+            { !darkMode && <BsMoonStarsFill className='icon' size={ 19 } onClick={ () => dispatch({ type: 'TOGGLE' }) } /> }
+            { darkMode && <BsSunFill className='icon' size={ 19 } onClick={ () => dispatch({ type: 'TOGGLE' }) } /> }
           </div>
 
           <div className="item">
