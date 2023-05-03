@@ -5,7 +5,7 @@
         align-items: center;
         margin-bottom: 1rem;
         padding: .25rem .25rem .25rem .75rem;
-        box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, .4);
+        box-shadow: var(--shadow);
         border-radius: 6px;
 
         h2 {
@@ -85,5 +85,10 @@
                 }
             }
         }
+    }
+
+    .data-table-grid {
+        box-shadow: var(--shadow);
+        transition: background .2s;
     }
 }

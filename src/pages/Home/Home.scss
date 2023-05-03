@@ -34,7 +34,7 @@
                 margin: 1rem 2rem;
                 padding: .5rem .75rem;
                 border-radius: 6px;
-                box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, .4);
+                box-shadow: var(--shadow);
 
                 .list-title {
                     color: gray;

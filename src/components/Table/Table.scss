@@ -1,4 +1,6 @@
 .table {
+    transition: background .2s;
+
     &__cell {
         .product-wrapper-info {
             display: flex;

@@ -1,6 +1,6 @@
 .featured-chart {
     flex: 1;
-    box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, .4);
+    box-shadow: var(--shadow);
     border-radius: 6px;
     padding: .5rem .75rem;
     display: flex;

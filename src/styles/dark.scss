@@ -3,7 +3,7 @@
     color: var(--light__color1);
 
     .chartgrid {
-        stroke: rgb(63, 61, 61);
+        stroke: rgb(39, 39, 39);
     }
 
     .app__navbar {
@@ -101,4 +101,6 @@
             }
         }
     }
+        
+    --shadow: 2px 4px 10px 1px rgba(71, 68, 68, 0.4);
 }

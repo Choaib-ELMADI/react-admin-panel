@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     padding: .5rem .75rem;
-    box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, .4);
+    box-shadow: var(--shadow);
     border-radius: 6px;
     border-top-left-radius: 0;
 

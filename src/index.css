@@ -23,6 +23,8 @@
   --large__font1:  2.5rem;
   --large__font2:  3.5rem;
   --large__font3:  4.5rem;
+
+  --shadow: 2px 4px 10px 1px rgba(201, 201, 201, .4);
 }
 
 * {
