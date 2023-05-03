@@ -32,6 +32,7 @@ const DataTable = () => {
         </button>
       </div>
       <DataGrid
+        className='data-table-grid'
         rows={ rows }
         columns={ columns.concat(cellAction) }
         initialState={{

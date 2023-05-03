@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { userIputs, productIputs } from './formData';
 import { Home, List, Login, Single, New } from './pages/index';
 import './App.css';
+import './styles/dark.scss';
 
 
 

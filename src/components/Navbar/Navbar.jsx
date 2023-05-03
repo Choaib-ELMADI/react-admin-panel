@@ -1,7 +1,7 @@
 import React from 'react';
 import { BsSearch, BsMoonStarsFill, BsListCheck, BsFillChatRightTextFill } from 'react-icons/bs';
 import { BiCollapse } from 'react-icons/bi';
-import { GrLanguage } from 'react-icons/gr';
+import { MdLanguage } from 'react-icons/md';
 import { IoMdNotifications } from 'react-icons/io';
 
 import './Navbar.scss';
@@ -20,7 +20,7 @@ const Navbar = () => {
 
         <div className="items">
           <div className="item">
-            <GrLanguage className='icon' size={ 21 } />
+            <MdLanguage className='icon' size={ 21 } />
             <span>English</span>
           </div>
 

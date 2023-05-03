@@ -18,13 +18,13 @@ const MyTable = () => {
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
                 <TableHead>
                     <TableRow>
-                        <TableCell>User Id</TableCell>
-                        <TableCell>Product</TableCell>
-                        <TableCell>Customer</TableCell>
-                        <TableCell>Date</TableCell>
-                        <TableCell>Amount</TableCell>
-                        <TableCell>Method</TableCell>
-                        <TableCell>Status</TableCell>
+                        <TableCell className='table__cell'>User Id</TableCell>
+                        <TableCell className='table__cell'>Product</TableCell>
+                        <TableCell className='table__cell'>Customer</TableCell>
+                        <TableCell className='table__cell'>Date</TableCell>
+                        <TableCell className='table__cell'>Amount</TableCell>
+                        <TableCell className='table__cell'>Method</TableCell>
+                        <TableCell className='table__cell'>Status</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>

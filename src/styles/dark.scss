@@ -1,0 +1,82 @@
+.app.dark {
+    background: var(--dark__color1);
+    color: var(--light__color1);
+
+    .chartgrid {
+        stroke: rgb(63, 61, 61);
+    }
+
+    .app__navbar {
+        .wrapper {
+            .search {
+                input {
+                    color: var(--light__color1);
+
+                    &::placeholder {
+                        color: var(--light__color1);
+                    }
+                }
+                
+                .icon {
+                    color: var(--light__color1);
+                }
+            }
+        }
+
+        .items {
+            .icon {
+                fill: var(--light__color1);
+            }
+        }
+        
+    }
+
+    .table {
+        background: var(--dark__color3);
+
+        &__cell {
+            color: var(--light__color2);
+        }
+    }
+
+    .data-table {
+        .data-table-title {
+            button {
+                border-color: violet;
+
+                & > * {
+                    color: violet;
+                }
+            }
+        }
+
+        .data-table-grid {
+            background: var(--dark__color3);
+            color: var(--light__color2);
+            border: none;
+        }
+        
+        .action {
+            &.view {
+                border-color: blue;
+                color: blue;
+            }
+
+            &.delete {
+                border-color: orangered;
+            }
+        }
+    }
+
+    .app__new {
+        .new {
+            .right {
+                .formInput {
+                    input {
+                        background: transparent;
+                    }
+                }
+            }
+        }
+    }
+}
