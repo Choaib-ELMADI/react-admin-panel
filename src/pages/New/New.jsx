@@ -20,7 +20,7 @@ const New = ({ inputs, title, type }) => {
         <Navbar />
         <div className='new'>
           <div className="top">
-            <h3>Add New { title }</h3>
+            <h2>Add New { title }</h2>
           </div>
           <div className="bottom">
             <div className="left">

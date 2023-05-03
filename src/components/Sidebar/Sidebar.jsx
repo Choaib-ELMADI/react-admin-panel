@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { MdDashboard } from 'react-icons/md';
 import { FaUsers } from 'react-icons/fa';
 import { AiTwotoneShop, AiFillIdcard, AiFillSetting } from 'react-icons/ai';
@@ -15,7 +15,9 @@ const Sidebar = () => {
   return (
     <div className='app__sidebar'>
       <div className="logo">
-        <span>admin</span>
+        <Link to='/' style={{ textDecoration: 'none' }}>
+          <span>admin</span>
+        </Link>
       </div>
 
       <div className="menu">
@@ -28,15 +30,15 @@ const Sidebar = () => {
           <ul>
             <span>LISTS</span>
             <li><NavLink className='link' to='/users'><FaUsers className='icon' size={ 20 } /> Users</NavLink></li>
-            <li><NavLink className='link' to='/users/5'><AiTwotoneShop className='icon' size={ 20 } /> Products</NavLink></li>
-            <li><NavLink className='link' to='/users/new'><AiFillIdcard  className='icon' size={ 20 } /> Orders</NavLink></li>
-            <li><NavLink className='link' to='/products'><TbTruckDelivery  className='icon' size={ 20 } /> Delivery</NavLink></li>
+            <li><NavLink className='link' to='/products'><AiTwotoneShop className='icon' size={ 20 } /> Products</NavLink></li>
+            <li><NavLink className='link' to='/login'><AiFillIdcard  className='icon' size={ 20 } /> Orders</NavLink></li>
+            <li><NavLink className='link' to='/login'><TbTruckDelivery  className='icon' size={ 20 } /> Delivery</NavLink></li>
           </ul>
 
           <ul>
             <span>USEFUL</span>
-            <li><NavLink className='link' to='/products/5'><IoMdStats className='icon' size={ 20 } /> Status</NavLink></li>
-            <li><NavLink className='link' to='/products/new'><IoIosNotifications className='icon' size={ 20 } /> Notifications</NavLink></li>
+            <li><NavLink className='link' to='/login'><IoMdStats className='icon' size={ 20 } /> Status</NavLink></li>
+            <li><NavLink className='link' to='/login'><IoIosNotifications className='icon' size={ 20 } /> Notifications</NavLink></li>
           </ul>
 
           <ul>
