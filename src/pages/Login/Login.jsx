@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../config/firebase';
 
+import { AuthContext } from '../../context/AuthContext';
 import './Login.scss';
 
 
 
 const Login = () => {
+  const { dispatch } = useContext(AuthContext);
   const [error, setError] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -20,7 +22,8 @@ const Login = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
-        navigate("/");
+        dispatch({ type: 'LOGIN', payload: user });
+        navigate('/');
       })
       .catch((err) => {
         console.error(err);

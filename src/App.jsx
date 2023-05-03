@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
 import { DarkModeContext } from './context/DarkModeContext';
+import { AuthContext } from './context/AuthContext';
 import { userIputs, productIputs } from './formData';
 import { Home, List, Login, Single, New } from './pages/index';
 import './App.css';
@@ -11,8 +12,7 @@ import './styles/dark.scss';
 
 const App = () => {
   const { darkMode } = useContext(DarkModeContext);
-
-  const currentUser = false;
+  const { currentUser } = useContext(AuthContext);
 
   const RequireAuth = ({ children }) => {
     return currentUser ? children : <Navigate to='/login' />;

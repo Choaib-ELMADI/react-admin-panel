@@ -105,6 +105,28 @@
             }
         }
     }
+
+    .app__login {
+        .formInput {
+            input {
+                color: var(--light__color1);
+            }
+
+            label {
+                color: var(--light__color1);
+            }
+
+            
+
+            &:has(input:is(:focus, :valid, :not(:placeholder-shown))) label {
+                color: var(--main__color1);
+            }
+        }
+        
+        button {
+            color: var(--light__color1);
+        }
+    }
         
     --shadow: 2px 4px 10px 1px rgba(71, 68, 68, 0.4);
 }
