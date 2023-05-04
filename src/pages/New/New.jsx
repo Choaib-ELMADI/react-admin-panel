@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { FiUpload } from 'react-icons/fi';
+import { setDoc, doc } from 'firebase/firestore';
 
+import { db } from '../../config/firebase';
 import { Sidebar, Navbar } from '../../components/index';
 import './New.scss';
 
@@ -9,8 +11,14 @@ import './New.scss';
 const New = ({ inputs, title, type }) => {
   const [selectedProfile, setSelectedProfile] = useState(null);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    await setDoc(doc(db, `${ title }s`, 99), {
+      name: 'Choaib ELAMDI',
+      email: 'choaibemail',
+      country: 'choaibcountry'
+    });
   };
 
   return (
