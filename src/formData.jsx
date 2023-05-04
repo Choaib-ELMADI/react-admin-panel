@@ -1,86 +1,86 @@
 export const userIputs = [
-    {
-        id: 1,
-        class: 'formInput',
-        labels: [
-          {
-            content: 'Username',
-          },
-        ],
-        inputType: 'text',
-        inputPlaceHolder: 'choaib_elmadi',
-    },
-    {
-        id: 2,
-        class: 'formInput',
-        labels: [
-          {
-            content: 'Name or Surname',
-          },
-        ],
-        inputType: 'text',
-        inputPlaceHolder: 'Choaib ELMADI',
-    },
-    {
-        id: 3,
-        class: 'formInput',
-        labels: [
-          {
-            content: 'Email',
-          },
-        ],
-        inputType: 'email',
-        inputPlaceHolder: 'choaibelmadi@gmail.com',
-    },
-    {
-        id: 4,
-        class: 'formInput',
-        labels: [
-          {
-            content: 'Phone',
-          },
-        ],
-        inputType: 'number',
-        inputPlaceHolder: '06 43 24 14 00',
-    },
-    {
-        id: 5,
-        class: 'formInput',
-        labels: [
-          {
-            content: 'Password',
-          },
-        ],
-        inputType: 'password',
-        inputPlaceHolder: '*********',
-    },
-    {
-        id: 6,
-        class: 'formInput',
-        labels: [
-          {
-            content: 'Address',
-          },
-        ],
-        inputType: 'text',
-        inputPlaceHolder: 'gueliz marrakech morocco',
-    },
-    {
-        id: 7,
-        class: 'formInput',
-        labels: [
-          {
-            content: 'Country',
-          },
-        ],
-        inputType: 'text',
-        inputPlaceHolder: 'Morocco',
-    },
+  {
+      id: 'username',
+      class: 'formInput',
+      labels: [
+        {
+          content: 'Username',
+        },
+      ],
+      inputType: 'text',
+      inputPlaceHolder: 'choaib_elmadi',
+  },
+  {
+      id: 'surname',
+      class: 'formInput',
+      labels: [
+        {
+          content: 'Name or Surname',
+        },
+      ],
+      inputType: 'text',
+      inputPlaceHolder: 'Choaib ELMADI',
+  },
+  {
+      id: 'email',
+      class: 'formInput',
+      labels: [
+        {
+          content: 'Email',
+        },
+      ],
+      inputType: 'email',
+      inputPlaceHolder: 'choaibelmadi@gmail.com',
+  },
+  {
+      id: 'phone',
+      class: 'formInput',
+      labels: [
+        {
+          content: 'Phone',
+        },
+      ],
+      inputType: 'number',
+      inputPlaceHolder: '06 43 24 14 00',
+  },
+  {
+      id: 'password',
+      class: 'formInput',
+      labels: [
+        {
+          content: 'Password',
+        },
+      ],
+      inputType: 'password',
+      inputPlaceHolder: '*********',
+  },
+  {
+      id: 'address',
+      class: 'formInput',
+      labels: [
+        {
+          content: 'Address',
+        },
+      ],
+      inputType: 'text',
+      inputPlaceHolder: 'gueliz marrakech morocco',
+  },
+  {
+      id: 'country',
+      class: 'formInput',
+      labels: [
+        {
+          content: 'Country',
+        },
+      ],
+      inputType: 'text',
+      inputPlaceHolder: 'Morocco',
+  },
 ];
 
 export const productIputs = [
   {
-      id: 1,
+      id: 'title',
       class: 'formInput',
       labels: [
         {
@@ -91,7 +91,7 @@ export const productIputs = [
       inputPlaceHolder: 'Macbook pro M2',
   },
   {
-      id: 2,
+      id: 'description',
       class: 'formInput',
       labels: [
         {
@@ -102,7 +102,7 @@ export const productIputs = [
       inputPlaceHolder: 'Macbook pro M2 description',
   },
   {
-      id: 3,
+      id: 'category',
       class: 'formInput',
       labels: [
         {
@@ -113,7 +113,7 @@ export const productIputs = [
       inputPlaceHolder: 'Computers',
   },
   {
-      id: 4,
+      id: 'price',
       class: 'formInput',
       labels: [
         {
@@ -124,7 +124,7 @@ export const productIputs = [
       inputPlaceHolder: '$ 1520',
   },
   {
-      id: 5,
+      id: 'stock',
       class: 'formInput',
       labels: [
         {

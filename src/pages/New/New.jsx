@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { FiUpload } from 'react-icons/fi';
-import { setDoc, doc } from 'firebase/firestore';
+import { doc, serverTimestamp, setDoc } from "firebase/firestore";
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 
-import { db } from '../../config/firebase';
+import { auth, db } from '../../config/firebase';
 import { Sidebar, Navbar } from '../../components/index';
 import './New.scss';
 
@@ -10,15 +11,29 @@ import './New.scss';
 
 const New = ({ inputs, title, type }) => {
   const [selectedProfile, setSelectedProfile] = useState(null);
+  const [data, setData] = useState({});
 
-  const handleSubmit = async (e) => {
+  const handleAddNew = async (e) => {
     e.preventDefault();
 
-    await setDoc(doc(db, `${ title }s`, 99), {
-      name: 'Choaib ELAMDI',
-      email: 'choaibemail',
-      country: 'choaibcountry'
-    });
+    try {
+      const res = await createUserWithEmailAndPassword(auth, data.email, data.password);
+
+      await setDoc(doc(db, `${ title }s`, res.user.uid), {
+        ...data,
+        timeStamp: serverTimestamp(),
+      });
+    }
+    catch(err) {
+      console.error(err);
+    }
+  };
+
+  const handleFormInput = (e) => {
+    const id = e.target.id;
+    const value = e.target.value;
+
+    setData({ ...data, [id]: value });
   };
 
   return (
@@ -42,7 +57,7 @@ const New = ({ inputs, title, type }) => {
               />
             </div>
             <div className="right">
-              <form onSubmit={ handleSubmit }>
+              <form onSubmit={ handleAddNew }>
                 <div className="formInput userProfile">
                   <label htmlFor="profile">{ type } </label>
                   <label htmlFor="profile"><FiUpload size={ 23 } /></label>
@@ -66,8 +81,10 @@ const New = ({ inputs, title, type }) => {
                         ))
                       }
                       <input
+                        id={ input.id }
                         type={ input.inputType } 
                         placeholder={ input.inputPlaceHolder }
+                        onChange={ handleFormInput }
                       />
                     </div>
                   ))
