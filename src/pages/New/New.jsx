@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FiUpload } from 'react-icons/fi';
 import { doc, serverTimestamp, setDoc } from "firebase/firestore";
 import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 
-import { auth, db } from '../../config/firebase';
+import { db, auth, store } from '../../config/firebase';
 import { Sidebar, Navbar } from '../../components/index';
 import './New.scss';
 
@@ -12,6 +13,33 @@ import './New.scss';
 const New = ({ inputs, title, type }) => {
   const [selectedProfile, setSelectedProfile] = useState(null);
   const [data, setData] = useState({});
+  const [uploadingProgress, setUploadingProgress] = useState(null);
+
+  useEffect(() => {
+    const uploadFile = () => {
+      const name = new Date().getTime() + selectedProfile.name;
+      const storageRef = ref(store, `images/${ name }`);
+      const uploadTask = uploadBytesResumable(storageRef, selectedProfile);
+
+      uploadTask.on('state_changed', 
+        (snapshot) => {
+          const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+          setUploadingProgress(progress);
+        }, 
+        (error) => {
+          console.error(error);
+        }, 
+        () => {
+          getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+            setData((prev) => ({ ...prev, image: downloadURL }));
+          });
+        }
+      );
+    };
+
+    selectedProfile && uploadFile();
+  }, [selectedProfile]);
+  
 
   const handleAddNew = async (e) => {
     e.preventDefault();
@@ -89,7 +117,10 @@ const New = ({ inputs, title, type }) => {
                     </div>
                   ))
                 }
-                <button type='submit'>Submit</button>
+                <button 
+                  type='submit'
+                  disabled={ uploadingProgress !== null && uploadingProgress < 100 }
+                >Send</button>
               </form>
             </div>
           </div>
