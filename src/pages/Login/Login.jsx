@@ -9,7 +9,7 @@ import './Login.scss';
 
 
 const Login = () => {
-  const { dispatch } = useContext(AuthContext);
+  const { dispatch2 } = useContext(AuthContext);
   const [error, setError] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -22,7 +22,7 @@ const Login = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
-        dispatch({ type: 'LOGIN', payload: user });
+        dispatch2({ type: 'LOGIN', payload: user });
         navigate('/');
       })
       .catch((err) => {

@@ -29,8 +29,8 @@ const MyTable = () => {
                 </TableHead>
                 <TableBody>
                     {
-                        tableRows.map((row) => (
-                            <TableRow key={ `row-${ row.id }` }>
+                        tableRows.map((row, i) => (
+                            <TableRow key={ `row-${ i }` }>
                                 <TableCell className='table__cell'>{ row.userId }</TableCell>
                                 <TableCell className='table__cell'>
                                     <div className='product-wrapper-info'>
