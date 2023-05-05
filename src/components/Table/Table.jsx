@@ -30,7 +30,7 @@ const MyTable = () => {
                 <TableBody>
                     {
                         tableRows.map((row) => (
-                            <TableRow key={ row.id }>
+                            <TableRow key={ `row-${ row.id }` }>
                                 <TableCell className='table__cell'>{ row.userId }</TableCell>
                                 <TableCell className='table__cell'>
                                     <div className='product-wrapper-info'>

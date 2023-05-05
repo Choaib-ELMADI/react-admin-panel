@@ -14,16 +14,18 @@ const DataTable = ({ addingType, columnsData }) => {
 
   const handleDeleteUser = async (id) => {
     try {      
-      deleteDoc(doc(db, "Users", id));
+      deleteDoc(doc(db, `${ addingType }s`, id));
 
-      const user = auth.currentUser;
-      deleteUser(user)
-        .then(() => {
-          console.log('User deleted');
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+      if (addingType.toLowerCase() === 'user') {
+        const user = auth.currentUser;
+        deleteUser(user)
+          .then(() => {
+            console.log('User deleted');
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
 
       fetchData();
     }
@@ -49,18 +51,18 @@ const DataTable = ({ addingType, columnsData }) => {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [data]);
 
   const cellAction = [{ field: 'action', headerName: 'Action', width: 145,
     renderCell: (params) => {
       return (
         <div className="cell-action">
-          {
-            addingType.toLowerCase() === 'user' &&
-            <Link to={ `/users/${ params.row.id }` } style={{ textDecoration: 'none' }}>
-              <span className='action view'>View</span>
-            </Link>
-          }
+          <Link 
+            to={ `/${ addingType.toLowerCase() }s/${ params.row.id }` } 
+            style={{ textDecoration: 'none' }}
+          >
+            <span className='action view'>View</span>
+          </Link>
           <span 
             className='action delete'
             onClick={ () => handleDeleteUser(params.row.id) }

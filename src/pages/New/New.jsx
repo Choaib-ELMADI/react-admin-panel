@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FiUpload } from 'react-icons/fi';
-import { doc, serverTimestamp, setDoc } from "firebase/firestore";
+import { addDoc, collection, doc, serverTimestamp, setDoc } from "firebase/firestore";
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 
@@ -21,7 +21,7 @@ const New = ({ inputs, title, type }) => {
   useEffect(() => {
     const uploadFile = () => {
       const name = new Date().getTime() + selectedProfile.name;
-      const storageRef = ref(store, name);
+      const storageRef = ref(store, `/${ title }s/${ name }`);
       const uploadTask = uploadBytesResumable(storageRef, selectedProfile);
 
       uploadTask.on('state_changed', 
@@ -46,19 +46,31 @@ const New = ({ inputs, title, type }) => {
   const handleAddNew = async (e) => {
     e.preventDefault();
 
-    try {
-      const res = await createUserWithEmailAndPassword(auth, data.email, data.password);
+    if (title.toLowerCase() === 'user') {
+      try {
+        const res = await createUserWithEmailAndPassword(auth, data.email, data.password);
 
-      await setDoc(doc(db, `${ title }s`, res.user.uid), {
-        ...data,
-        timeStamp: serverTimestamp(),
-      });
-
-      navigate('/users');
-    }
-    catch(err) {
-      console.error(err);
-    }
+        await setDoc(doc(db, 'Users', res.user.uid), {
+          ...data,
+          timeStamp: serverTimestamp(),
+        });
+        navigate('/users');
+      }
+      catch(err) {
+        console.error(err);
+      }
+    } else {
+      try {
+        await addDoc(collection(db, "Products"), {
+          ...data,
+          timeStamp: serverTimestamp(),
+        });
+        navigate('/products');
+      }
+      catch(err) {
+        console.error(err);
+      }    
+    };
   };
 
   const handleFormInput = (e) => {

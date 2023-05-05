@@ -1,4 +1,4 @@
-export const userIputs = [
+export const userInputs = [
   {
       id: 'username',
       class: 'formInput',
@@ -78,7 +78,7 @@ export const userIputs = [
   },
 ];
 
-export const productIputs = [
+export const productInputs = [
   {
       id: 'title',
       class: 'formInput',

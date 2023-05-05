@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
 import { DarkModeContext } from './context/DarkModeContext';
 import { AuthContext } from './context/AuthContext';
-import { userIputs, productIputs } from './formData';
+import { userInputs, productInputs } from './formData';
 import { Home, List, Login, Single, New } from './pages/index';
 import './App.css';
 import './styles/dark.scss';
@@ -64,11 +64,12 @@ const App = () => {
                 element={ 
                   <RequireAuth>
                     <New 
-                      inputs={ userIputs } 
+                      inputs={ userInputs } 
                       title='User' 
                       type='Profile' 
                     />
-                  </RequireAuth> } 
+                  </RequireAuth> 
+                } 
               />
             </Route>
 
@@ -97,7 +98,7 @@ const App = () => {
                 element={ 
                   <RequireAuth>
                     <New 
-                      inputs={ productIputs } 
+                      inputs={ productInputs } 
                       title='Product' 
                       type='Image' 
                     />
