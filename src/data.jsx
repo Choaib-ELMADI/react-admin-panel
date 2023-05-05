@@ -125,7 +125,7 @@ export const userColumns = [
     renderCell: (params) => {
       return (
         <span 
-          className={ `user-status` }
+          className={ `user-status ${ params.row.country === 'morocco' ? 'active' : 'passive' }` }
           style={{ textTransform: 'capitalize' }}
         >{ params.row.country }</span>
       );
@@ -134,10 +134,9 @@ export const userColumns = [
 ];
 
 export const productColumns = [
-  { field: 'id',            headerName: 'ID',         width: 70  },
-  { field: 'title',         headerName: 'Product Name',  width: 130 },
-  { field: 'description',   headerName: 'Product Description', width: 200, sortable: false },
-  { field: 'productProfile',headerName: 'Profile',    width: 160, sortable: false,
+  { field: 'id',            headerName: 'ID',           width: 70  },
+  { field: 'title',         headerName: 'Product Name', width: 130 },
+  { field: 'productProfile',headerName: 'Profile',      width: 160, sortable: false,
     renderCell: (params) => {
       return (
         <>
@@ -152,11 +151,13 @@ export const productColumns = [
       );
     }
   },
-  { field: 'stock',    headerName: 'Stock',    width: 130, sortable: false,
+  { field: 'description',   headerName: 'Product Description', width: 200, sortable: false },
+  { field: 'price',         headerName: 'Price',               width: 130, sortable: false },
+  { field: 'stock',         headerName: 'Stock',               width: 130, sortable: false,
     renderCell: (params) => {
       return (
         <span 
-          className={ `user-status` }
+          className={ `user-status ${ params.row.stock === 'in stock' ? 'active' : 'passive' }` }
           style={{ textTransform: 'capitalize' }}
         >{ params.row.stock }</span>
       );
