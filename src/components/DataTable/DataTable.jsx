@@ -1,22 +1,45 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { DataGrid } from '@mui/x-data-grid';
+import { collection, deleteDoc, doc, getDocs } from "firebase/firestore";
 
-import { rows, columns } from '../../data';
+import { db } from '../../config/firebase';
+import { columns } from '../../data';
 import './DataTable.scss';
 
 
 
 const DataTable = () => {
-  const [users, setUsers] = useState(rows);
+  const [users, setUsers] = useState([]);
 
-  const handleDeleteUser = (id) => {
-    setUsers(
-      users.filter(user => (
-        user.id != id
-      ))
-    );
+  const handleDeleteUser = async (id) => {
+    try {
+      deleteDoc(doc(db, 'Users', id));
+      fetchData();
+    }
+    catch(err) {
+      console.log(err);
+    };
   };
+
+  const fetchData = async () => {
+    let list = [];
+
+    try {
+      const querySnapshot = await getDocs(collection(db, "Users"));
+      querySnapshot.forEach((doc) => {
+        list.push({ id: doc.id, ...doc.data() });
+      });
+      setUsers(list);
+    }
+    catch(err) {
+      console.error(err);
+    };
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   const cellAction = [{ field: 'action', headerName: 'Action', width: 145,
     renderCell: (params) => {

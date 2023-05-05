@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { FiUpload } from 'react-icons/fi';
 import { doc, serverTimestamp, setDoc } from "firebase/firestore";
 import { createUserWithEmailAndPassword } from 'firebase/auth';
@@ -14,6 +15,8 @@ const New = ({ inputs, title, type }) => {
   const [selectedProfile, setSelectedProfile] = useState(null);
   const [data, setData] = useState({});
   const [uploadingProgress, setUploadingProgress] = useState(null);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const uploadFile = () => {
@@ -51,6 +54,8 @@ const New = ({ inputs, title, type }) => {
         ...data,
         timeStamp: serverTimestamp(),
       });
+
+      navigate('/users');
     }
     catch(err) {
       console.error(err);
