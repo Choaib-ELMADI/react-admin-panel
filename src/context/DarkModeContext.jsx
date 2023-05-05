@@ -2,7 +2,7 @@ import { createContext, useReducer } from "react";
 import DarkModeReducer from './DarkModeReducer';
 
 const INITIAL_STATE = {
-    darkMode: true,
+    darkMode: false,
 };
 
 export const DarkModeContext = createContext(INITIAL_STATE);

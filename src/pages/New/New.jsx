@@ -21,7 +21,7 @@ const New = ({ inputs, title, type }) => {
   useEffect(() => {
     const uploadFile = () => {
       const name = new Date().getTime() + selectedProfile.name;
-      const storageRef = ref(store, `images/${ name }`);
+      const storageRef = ref(store, name);
       const uploadTask = uploadBytesResumable(storageRef, selectedProfile);
 
       uploadTask.on('state_changed', 
@@ -42,7 +42,6 @@ const New = ({ inputs, title, type }) => {
 
     selectedProfile && uploadFile();
   }, [selectedProfile]);
-  
 
   const handleAddNew = async (e) => {
     e.preventDefault();

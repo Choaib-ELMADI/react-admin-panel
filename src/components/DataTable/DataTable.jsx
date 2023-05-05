@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { DataGrid } from '@mui/x-data-grid';
 import { collection, deleteDoc, doc, getDocs } from "firebase/firestore";
+import { deleteUser } from 'firebase/auth';
 
-import { db } from '../../config/firebase';
+import { db, auth } from '../../config/firebase';
 import { columns } from '../../data';
 import './DataTable.scss';
 
@@ -13,8 +14,18 @@ const DataTable = () => {
   const [users, setUsers] = useState([]);
 
   const handleDeleteUser = async (id) => {
-    try {
+    try {      
       deleteDoc(doc(db, 'Users', id));
+
+      const user = auth.currentUser;
+      deleteUser(user)
+        .then(() => {
+          console.log('User deleted');
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+
       fetchData();
     }
     catch(err) {
