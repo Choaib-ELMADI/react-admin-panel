@@ -101,7 +101,7 @@ export const tableRows = [
   },
 ];
 
-export const columns = [
+export const userColumns = [
   { field: 'id',         headerName: 'ID',         width: 70  },
   { field: 'username',   headerName: 'User Name',  width: 130 },
   { field: 'email',      headerName: 'User Email', width: 200, sortable: false },
@@ -125,9 +125,40 @@ export const columns = [
     renderCell: (params) => {
       return (
         <span 
-          className={ `user-status ${ params.row.country.toLowerCase() === 'morocco' ? 'active' : 'passive' }` }
+          className={ `user-status` }
           style={{ textTransform: 'capitalize' }}
         >{ params.row.country }</span>
+      );
+    }
+  },
+];
+
+export const productColumns = [
+  { field: 'id',            headerName: 'ID',         width: 70  },
+  { field: 'title',         headerName: 'Product Name',  width: 130 },
+  { field: 'description',   headerName: 'Product Description', width: 200, sortable: false },
+  { field: 'productProfile',headerName: 'Profile',    width: 160, sortable: false,
+    renderCell: (params) => {
+      return (
+        <>
+          <img 
+            className='data-table-user-profile' 
+            src={ params.row.image } 
+            alt="product" 
+            draggable={ false }
+          />
+          <span>{ params.row.title }</span>
+        </>
+      );
+    }
+  },
+  { field: 'stock',    headerName: 'Stock',    width: 130, sortable: false,
+    renderCell: (params) => {
+      return (
+        <span 
+          className={ `user-status` }
+          style={{ textTransform: 'capitalize' }}
+        >{ params.row.stock }</span>
       );
     }
   },

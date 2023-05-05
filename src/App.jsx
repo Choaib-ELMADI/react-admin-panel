@@ -7,6 +7,7 @@ import { userIputs, productIputs } from './formData';
 import { Home, List, Login, Single, New } from './pages/index';
 import './App.css';
 import './styles/dark.scss';
+import { userColumns, productColumns } from './data';
 
 
 
@@ -29,13 +30,13 @@ const App = () => {
             <Route index  element={ <RequireAuth><Home /></RequireAuth> } />
 
             <Route path='users'>
-              <Route index element={ <RequireAuth><List /></RequireAuth> } />
+              <Route index element={ <RequireAuth><List addingType="User" columnsData={ userColumns } /></RequireAuth> } />
               <Route path=':userId' element={ <RequireAuth><Single /></RequireAuth> } />
               <Route path='new'    element={ <RequireAuth><New inputs={ userIputs } title='User' type='Profile' /></RequireAuth> } />
             </Route>
 
             <Route path='products'>
-              <Route index element={ <RequireAuth><List /></RequireAuth> } />
+              <Route index element={ <RequireAuth><List addingType="Product" columnsData={ productColumns } /></RequireAuth> } />
               <Route path=':productId' element={ <RequireAuth><Single /></RequireAuth> } />
               <Route path='new'    element={ <RequireAuth><New inputs={ productIputs } title='Product' type='Image' /></RequireAuth> } />
             </Route>

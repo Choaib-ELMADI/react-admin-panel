@@ -5,17 +5,16 @@ import { collection, deleteDoc, doc, getDocs } from "firebase/firestore";
 import { deleteUser } from 'firebase/auth';
 
 import { db, auth } from '../../config/firebase';
-import { columns } from '../../data';
 import './DataTable.scss';
 
 
 
-const DataTable = () => {
-  const [users, setUsers] = useState([]);
+const DataTable = ({ addingType, columnsData }) => {
+  const [data, setData] = useState([]);
 
   const handleDeleteUser = async (id) => {
     try {      
-      deleteDoc(doc(db, 'Users', id));
+      deleteDoc(doc(db, "Users", id));
 
       const user = auth.currentUser;
       deleteUser(user)
@@ -37,11 +36,11 @@ const DataTable = () => {
     let list = [];
 
     try {
-      const querySnapshot = await getDocs(collection(db, "Users"));
+      const querySnapshot = await getDocs(collection(db, `${ addingType }s`));
       querySnapshot.forEach((doc) => {
         list.push({ id: doc.id, ...doc.data() });
       });
-      setUsers(list);
+      setData(list);
     }
     catch(err) {
       console.error(err);
@@ -56,9 +55,12 @@ const DataTable = () => {
     renderCell: (params) => {
       return (
         <div className="cell-action">
-          <Link to={ `/users/${ params.row.id }` } style={{ textDecoration: 'none' }}>
-            <span className='action view'>View</span>
-          </Link>
+          {
+            addingType.toLowerCase() === 'user' &&
+            <Link to={ `/users/${ params.row.id }` } style={{ textDecoration: 'none' }}>
+              <span className='action view'>View</span>
+            </Link>
+          }
           <span 
             className='action delete'
             onClick={ () => handleDeleteUser(params.row.id) }
@@ -71,18 +73,18 @@ const DataTable = () => {
   return (
     <div style={{ width: '100%' }} className='data-table'>
       <div className="data-table-title">
-        <h2>Add New User</h2>
+        <h2>Add New { addingType }</h2>
         <button>
-          <Link to='/users/new' style={{ textDecoration: 'none' }}>Add</Link>
+          <Link to={ `/${ addingType.toLowerCase() }s/new` } style={{ textDecoration: 'none' }}>Add</Link>
         </button>
       </div>
       {
-        users.length < 1 ?
-        <h1 style={{ color: 'gray' }}>No users right now</h1> :
+        data.length < 1 ?
+        <h1 style={{ color: 'gray' }}>{ `No ${ addingType }s Right Now` }</h1> :
         <DataGrid
           className='data-table-grid'
-          rows={ users }
-          columns={ columns.concat(cellAction) }
+          rows={ data }
+          columns={ columnsData.concat(cellAction) }
           initialState={{
             pagination: {
               paginationModel: { page: 0, pageSize: 9 },

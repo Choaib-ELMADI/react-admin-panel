@@ -5,7 +5,7 @@ import './List.scss';
 
 
 
-const List = () => {
+const List = ({ addingType, columnsData }) => {
   return (
     <div className='app__list'>
       <Sidebar />
@@ -13,7 +13,7 @@ const List = () => {
         <Navbar />
 
         <div className='data-table-container'>
-          <DataTable />
+          <DataTable addingType={ addingType } columnsData={ columnsData } />
         </div>
       </div>
     </div>
