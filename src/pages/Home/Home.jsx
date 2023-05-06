@@ -13,10 +13,10 @@ const Home = () => {
         <Navbar />
 
         <div className='widgets'>
-          <Widget type='user'     amount={ 995 }  diff={ 34 } />
-          <Widget type='order'    amount={ 450 }  diff={ 55 } />
-          <Widget type='earnings' amount={ 4621 } diff={ 62 } />
-          <Widget type='balance'  amount={ 1548 } diff={ 15 } />
+          <Widget type='user' />
+          <Widget type='order' />
+          <Widget type='earnings' />
+          <Widget type='product' />
         </div>
         
         <div className="charts">

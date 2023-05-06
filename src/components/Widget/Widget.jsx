@@ -1,19 +1,25 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { BsChevronUp, BsChevronDown } from 'react-icons/bs';
 import { FaUserAlt, FaShopify, FaBalanceScaleLeft } from 'react-icons/fa';
 import { BiMoney } from 'react-icons/bi';
+import { query, collection, where, getDocs } from 'firebase/firestore';
 
+import { db } from '../../config/firebase';
 import './Widget.scss';
 
 
 
-const Widget = ({ type, amount, diff }) => {
+const Widget = ({ type }) => {
+  const [amount, setAmount] = useState(0);
+  const [diff, setDiff] = useState(0);
+
   let data;
   switch (type) {
     case "user":
       data = {
         title: "USERS",
+        query: 'Users',
         isMoney: false,
         link: "See All Users",
         icon: (
@@ -44,9 +50,10 @@ const Widget = ({ type, amount, diff }) => {
       };
       break;
 
-    case "balance":
+    case "product":
       data = {
-        title: "BALANCE",
+        title: "PRODUCTS",
+        query: 'Products',
         isMoney: false,
         link: "View Details",
         icon: (
@@ -59,6 +66,35 @@ const Widget = ({ type, amount, diff }) => {
       break;
   };
 
+  useEffect(() => {
+    const fetchData = async () => {
+      const today = new Date();
+      const lastMonth = new Date(new Date().setMonth(today.getMonth() - 1));
+      const prevMonth = new Date(new Date().setMonth(today.getMonth() - 2));
+
+      const lastMonthQuery = query(
+        collection(db, data.query), 
+        where("timeStamp", "<=", today), 
+        where("timeStamp", ">", lastMonth)
+      );
+
+      const prevMonthQuery = query(
+        collection(db, data.query), 
+        where("timeStamp", "<=", lastMonth), 
+        where("timeStamp", ">", prevMonth)
+      );
+
+      const lastMonthData = await getDocs(lastMonthQuery);
+      const prevMonthData = await getDocs(prevMonthQuery);
+
+      setAmount(lastMonthData.docs.length);
+      setDiff((lastMonthData.docs.length - prevMonthData.docs.length) / (prevMonthData.docs.length * 100))
+    };
+
+    fetchData();
+  }, []);
+  
+
   return (
     <div className='widget'>
       <div className="left">
@@ -67,10 +103,10 @@ const Widget = ({ type, amount, diff }) => {
         <Link className='link'>{ data.link }</Link>
       </div>
       <div className="right">
-        <span className={ ` ${ diff >= 35 ? 'percentage positive' : 'percentage negative' } ` }>
-          { diff >= 35 && <BsChevronUp className='icon' size={ 21 } /> }
-          { diff < 35 && <BsChevronDown className='icon' size={ 21 } /> }
-          <span>{ diff }%</span>
+        <span className={ ` ${ diff > 0 ? 'percentage positive' : 'percentage negative' } ` }>
+          { diff > 0 && <BsChevronUp className='icon' size={ 21 } /> }
+          { diff <= 0 && <BsChevronDown className='icon' size={ 21 } /> }
+          <span>{ diff ? diff : 0 }%</span>
         </span>
         { data.icon }
       </div>
